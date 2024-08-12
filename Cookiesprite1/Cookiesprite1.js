@@ -9,15 +9,18 @@ import {
   Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
-export default class Cookie extends Sprite {
+export default class Cookiesprite1 extends Sprite {
   constructor(...args) {
     super(...args);
 
     this.costumes = [
-      new Costume("Cookie2", "./Cookie/costumes/Cookie2.png", { x: 32, y: 31 }),
+      new Costume("Cookie2", "./Cookiesprite1/costumes/Cookie2.png", {
+        x: 32,
+        y: 31,
+      }),
     ];
 
-    this.sounds = [new Sound("Click", "./Cookie/sounds/Click.wav")];
+    this.sounds = [new Sound("Click", "./Cookiesprite1/sounds/Click.wav")];
 
     this.triggers = [
       new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked),
@@ -26,7 +29,6 @@ export default class Cookie extends Sprite {
         { name: "game loop" },
         this.whenIReceiveGameLoop
       ),
-      new Trigger(Trigger.CLONE_START, this.startAsClone),
     ];
   }
 
@@ -53,7 +55,6 @@ export default class Cookie extends Sprite {
     this.size = 350;
     this.goto(0, 0);
     this.broadcast("game loop");
-    this.createClone();
   }
 
   *whenIReceiveGameLoop() {
@@ -74,10 +75,5 @@ export default class Cookie extends Sprite {
       }
       yield;
     }
-  }
-
-  *startAsClone() {
-    this.size = 100;
-    this.goto(0, 97);
   }
 }

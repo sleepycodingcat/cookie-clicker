@@ -15,8 +15,8 @@ export default class Stage extends StageBase {
 
     this.costumes = [
       new Costume("backdrop1", "./Stage/costumes/backdrop1.svg", {
-        x: 240,
-        y: 180,
+        x: 240.39999389648438,
+        y: 195.600005,
       }),
     ];
 
@@ -25,15 +25,6 @@ export default class Stage extends StageBase {
     this.triggers = [];
 
     this.vars.speed = 0;
-    this.vars.score = 0;
-
-    this.watchers.score = new Watcher({
-      label: "SCORE",
-      style: "normal",
-      visible: true,
-      value: () => this.vars.score,
-      x: 245,
-      y: 175,
-    });
+    this.vars.score = 29;
   }
 }
