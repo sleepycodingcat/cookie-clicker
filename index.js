@@ -4,22 +4,23 @@ import {
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
 import Stage from "./Stage/Stage.js";
-import Cookiesprite1 from "./Cookiesprite1/Cookiesprite1.js";
+import Cookie from "./Cookie/Cookie.js";
 import Score from "./Score/Score.js";
 import Lights from "./Lights/Lights.js";
+import Cookie2 from "./Cookie2/Cookie2.js";
 
 const stage = new Stage({ costumeNumber: 1 });
 
 const sprites = {
-  Cookiesprite1: new Cookiesprite1({
-    x: -3,
-    y: -1,
+  Cookie: new Cookie({
+    x: 0,
+    y: 0,
     direction: 90,
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
     costumeNumber: 1,
     size: 350,
     visible: true,
-    layerOrder: 2,
+    layerOrder: 4,
   }),
   Score: new Score({
     x: 240,
@@ -29,16 +30,26 @@ const sprites = {
     costumeNumber: 11,
     size: 50,
     visible: false,
-    layerOrder: 1,
+    layerOrder: 2,
   }),
   Lights: new Lights({
-    x: 36,
-    y: 28,
-    direction: 90,
+    x: 0,
+    y: 0,
+    direction: 158,
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
     costumeNumber: 1,
     size: 100,
     visible: true,
+    layerOrder: 1,
+  }),
+  Cookie2: new Cookie2({
+    x: 45,
+    y: -25,
+    direction: 90,
+    rotationStyle: Sprite.RotationStyle.ALL_AROUND,
+    costumeNumber: 1,
+    size: 10,
+    visible: false,
     layerOrder: 3,
   }),
 };
