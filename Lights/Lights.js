@@ -25,6 +25,16 @@ export default class Lights extends Sprite {
     this.triggers = [
       new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked),
       new Trigger(Trigger.CLONE_START, this.startAsClone),
+      new Trigger(
+        Trigger.BROADCAST,
+        { name: "open shop" },
+        this.whenIReceiveOpenShop
+      ),
+      new Trigger(
+        Trigger.BROADCAST,
+        { name: "close shop" },
+        this.whenIReceiveCloseShop
+      ),
     ];
   }
 
@@ -45,6 +55,24 @@ export default class Lights extends Sprite {
     while (true) {
       this.goto(this.sprites["Cookie"].x, this.sprites["Cookie"].y);
       this.direction -= 1;
+      yield;
+    }
+  }
+
+  *whenIReceiveOpenShop() {
+    /* TODO: Implement stop other scripts in sprite */ null;
+    this.deleteThisClone();
+  }
+
+  *whenIReceiveCloseShop() {
+    this.direction = 90;
+    this.goto(this.sprites["Cookie"].x, this.sprites["Cookie"].y);
+    this.effects.ghost = 50;
+    this.moveBehind();
+    this.createClone();
+    while (true) {
+      this.goto(this.sprites["Cookie"].x, this.sprites["Cookie"].y);
+      this.direction += 1;
       yield;
     }
   }

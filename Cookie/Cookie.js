@@ -27,6 +27,16 @@ export default class Cookie extends Sprite {
         this.whenIReceiveGameLoop
       ),
       new Trigger(Trigger.CLONE_START, this.startAsClone),
+      new Trigger(
+        Trigger.BROADCAST,
+        { name: "open shop" },
+        this.whenIReceiveOpenShop
+      ),
+      new Trigger(
+        Trigger.BROADCAST,
+        { name: "close shop" },
+        this.whenIReceiveCloseShop
+      ),
     ];
   }
 
@@ -79,6 +89,9 @@ export default class Cookie extends Sprite {
 
   *startAsClone() {
     this.size = 80;
+    if (this.compare(this.size, 80) > 0) {
+      this.deleteThisClone();
+    }
     this.effects.ghost = 10;
     this.moveBehind();
     this.direction = this.random(0, 360);
@@ -89,5 +102,14 @@ export default class Cookie extends Sprite {
       yield;
     }
     this.deleteThisClone();
+  }
+
+  *whenIReceiveOpenShop() {
+    /* TODO: Implement stop other scripts in sprite */ null;
+    this.moveBehind(2);
+  }
+
+  *whenIReceiveCloseShop() {
+    this.broadcast("game loop");
   }
 }

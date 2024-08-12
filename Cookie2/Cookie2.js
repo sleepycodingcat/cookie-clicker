@@ -14,9 +14,9 @@ export default class Cookie2 extends Sprite {
     super(...args);
 
     this.costumes = [
-      new Costume("cookie", "./Cookie2/costumes/cookie.png", {
-        x: 277,
-        y: 253.5,
+      new Costume("cookie", "./Cookie2/costumes/cookie.svg", {
+        x: 79,
+        y: 84.5,
       }),
     ];
 
