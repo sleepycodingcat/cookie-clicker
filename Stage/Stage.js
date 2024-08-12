@@ -20,22 +20,38 @@ export default class Stage extends StageBase {
       }),
     ];
 
-    this.sounds = [new Sound("pop", "./Stage/sounds/pop.wav")];
+    this.sounds = [new Sound("music", "./Stage/sounds/music.wav")];
 
     this.triggers = [
       new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked),
+      new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked2),
     ];
 
     this.vars.speed = 0;
-    this.vars.score = 55;
-    this.vars.workers = 5;
+    this.vars.score = 0;
+    this.vars.workers = 0;
+    this.vars.machines = 0;
+    this.vars.monsters = 0;
+    this.vars.click = 0;
   }
 
   *whenGreenFlagClicked() {
     this.vars.workers = 0;
+    this.vars.monsters = 0;
+    this.vars.machines = 0;
+    this.vars.score += this.toNumber(this.vars.monsters) * 50;
     while (true) {
       this.vars.score += this.toNumber(this.vars.workers);
+      this.vars.score += this.toNumber(this.vars.machines) * 5;
+      this.vars.score += this.toNumber(this.vars.monsters) * 50;
       yield* this.wait(1);
+      yield;
+    }
+  }
+
+  *whenGreenFlagClicked2() {
+    while (true) {
+      yield* this.playSoundUntilDone("music");
       yield;
     }
   }

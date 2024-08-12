@@ -14,7 +14,10 @@ export default class Cookie extends Sprite {
     super(...args);
 
     this.costumes = [
-      new Costume("Cookie2", "./Cookie/costumes/Cookie2.png", { x: 32, y: 31 }),
+      new Costume("Cookie2", "./Cookie/costumes/Cookie2.svg", {
+        x: 16,
+        y: 15.5,
+      }),
     ];
 
     this.sounds = [new Sound("Click", "./Cookie/sounds/Click.wav")];

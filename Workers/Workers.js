@@ -40,8 +40,13 @@ export default class Workers extends Sprite {
   *whenGreenFlagClicked() {
     this.visible = false;
     this.goto(-172, -44);
+    this.stage.vars.click = 0;
     while (true) {
-      if (this.touching("mouse") && this.mouse.down) {
+      if (
+        this.touching("mouse") &&
+        this.mouse.down &&
+        this.toNumber(this.stage.vars.click) === 1
+      ) {
         while (!!this.mouse.down) {
           yield;
         }
@@ -62,9 +67,11 @@ export default class Workers extends Sprite {
 
   *whenIReceiveOpenShop() {
     this.visible = true;
+    this.stage.vars.click = 1;
   }
 
   *whenIReceiveCloseShop() {
     this.visible = false;
+    this.stage.vars.click = 0;
   }
 }
