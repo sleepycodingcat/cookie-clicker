@@ -55,6 +55,7 @@ export default class Monster extends Sprite {
           this.compare(this.stage.vars.score, 150) > 0
         ) {
           this.stage.vars.monsters++;
+          this.stage.vars.upgrades++;
           this.stage.vars.score -= 500;
         } else {
           this.broadcast("Not enough");

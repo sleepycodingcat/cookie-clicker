@@ -20,7 +20,7 @@ export default class Cookie2 extends Sprite {
       }),
     ];
 
-    this.sounds = [];
+    this.sounds = [new Sound("Coin", "./Cookie2/sounds/Coin.wav")];
 
     this.triggers = [
       new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked),

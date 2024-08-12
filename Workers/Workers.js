@@ -56,6 +56,7 @@ export default class Workers extends Sprite {
           this.compare(this.stage.vars.score, 50) > 0
         ) {
           this.stage.vars.workers++;
+          this.stage.vars.upgrades++;
           this.stage.vars.score -= 50;
         } else {
           this.broadcast("Not enough");

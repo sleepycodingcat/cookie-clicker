@@ -42,21 +42,29 @@ export default class Shop extends Sprite {
   }
 
   *whenGreenFlagClicked() {
+    this.stage.watchers.workers.visible = false;
+    this.stage.watchers.machines.visible = false;
+    this.stage.watchers.monsters.visible = false;
     this.goto(0, 0);
     this.costume = "costume1";
     while (true) {
-      if (
-        this.touching("mouse") &&
-        this.mouse.down &&
-        this.costumeNumber === 1
-      ) {
-        while (!!this.mouse.down) {
-          yield;
+      if (this.costumeNumber === 1 && this.touching("mouse")) {
+        this.effects.brightness = -25;
+        if (this.mouse.down) {
+          while (!!this.mouse.down) {
+            yield;
+          }
+          this.stage.watchers.machines.visible = true;
+          this.stage.watchers.monsters.visible = true;
+          this.stage.watchers.workers.visible = true;
+          yield* this.startSound("Click");
+          this.costume = "costume2";
+          this.createClone();
+          this.broadcast("open shop");
         }
-        yield* this.startSound("Click");
-        this.costume = "costume2";
-        this.createClone();
-        this.broadcast("open shop");
+      }
+      if (!(this.costumeNumber === 1) || !this.touching("mouse")) {
+        this.effects.clear();
       }
       yield;
     }
@@ -67,13 +75,19 @@ export default class Shop extends Sprite {
     this.moveAhead();
     this.costume = "costume3";
     while (true) {
-      if (this.touching("mouse") && this.mouse.down) {
-        while (!!this.mouse.down) {
-          yield;
+      if (this.touching("mouse")) {
+        this.effects.brightness = -25;
+        if (this.mouse.down) {
+          while (!!this.mouse.down) {
+            yield;
+          }
+          this.broadcast("close shop");
+          yield* this.startSound("Click");
+          this.deleteThisClone();
         }
-        this.broadcast("close shop");
-        yield* this.startSound("Click");
-        this.deleteThisClone();
+      }
+      if (!this.touching("mouse")) {
+        this.effects.clear();
       }
       yield;
     }
@@ -81,5 +95,8 @@ export default class Shop extends Sprite {
 
   *whenIReceiveCloseShop() {
     this.costume = "costume1";
+    this.stage.watchers.workers.visible = false;
+    this.stage.watchers.machines.visible = false;
+    this.stage.watchers.monsters.visible = false;
   }
 }

@@ -13,6 +13,7 @@ import Workers from "./Workers/Workers.js";
 import Machine from "./Machine/Machine.js";
 import Message from "./Message/Message.js";
 import Monster from "./Monster/Monster.js";
+import Acheivements from "./Acheivements/Acheivements.js";
 
 const stage = new Stage({ costumeNumber: 1 });
 
@@ -50,7 +51,7 @@ const sprites = {
   Lights: new Lights({
     x: 0,
     y: 0,
-    direction: 179,
+    direction: 156,
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
     costumeNumber: 1,
     size: 100,
@@ -106,6 +107,16 @@ const sprites = {
     size: 100,
     visible: false,
     layerOrder: 6,
+  }),
+  Acheivements: new Acheivements({
+    x: 124,
+    y: -139,
+    direction: 90,
+    rotationStyle: Sprite.RotationStyle.ALL_AROUND,
+    costumeNumber: 2,
+    size: 100,
+    visible: false,
+    layerOrder: 10,
   }),
 };
 

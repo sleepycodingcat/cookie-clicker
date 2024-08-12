@@ -55,6 +55,7 @@ export default class Machine extends Sprite {
           this.compare(this.stage.vars.score, 150) > 0
         ) {
           this.stage.vars.machines++;
+          this.stage.vars.upgrades++;
           this.stage.vars.score -= 150;
         } else {
           this.broadcast("Not enough");
