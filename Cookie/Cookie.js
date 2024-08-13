@@ -40,6 +40,11 @@ export default class Cookie extends Sprite {
         { name: "close shop" },
         this.whenIReceiveCloseShop
       ),
+      new Trigger(
+        Trigger.BROADCAST,
+        { name: "machine prop" },
+        this.whenIReceiveMachineProp
+      ),
     ];
   }
 
@@ -63,6 +68,7 @@ export default class Cookie extends Sprite {
 
   *whenGreenFlagClicked() {
     this.stage.vars.score = 0;
+    this.direction = 90;
     this.size = 350;
     this.goto(0, 0);
     this.broadcast("game loop");
@@ -117,5 +123,12 @@ export default class Cookie extends Sprite {
 
   *whenIReceiveCloseShop() {
     this.broadcast("game loop");
+  }
+
+  *whenIReceiveMachineProp() {
+    while (true) {
+      this.direction -= 1;
+      yield;
+    }
   }
 }

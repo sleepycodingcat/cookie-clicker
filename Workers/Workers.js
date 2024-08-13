@@ -15,8 +15,12 @@ export default class Workers extends Sprite {
 
     this.costumes = [
       new Costume("costume1", "./Workers/costumes/costume1.svg", {
-        x: 42.29129129129126,
-        y: 35.78304303303304,
+        x: 42.291290000000004,
+        y: 35.78304499999999,
+      }),
+      new Costume("costume2", "./Workers/costumes/costume2.svg", {
+        x: 47.96313000000001,
+        y: 42.84728999999999,
       }),
     ];
 
@@ -39,6 +43,7 @@ export default class Workers extends Sprite {
 
   *whenGreenFlagClicked() {
     this.visible = false;
+    this.costume = "costume1";
     this.goto(-172, -44);
     this.rotationStyle = Sprite.RotationStyle.LEFT_RIGHT;
     this.stage.vars.click = 0;
@@ -69,6 +74,9 @@ export default class Workers extends Sprite {
             this.broadcast("Not enough");
           }
         }
+      }
+      if (this.toNumber(this.stage.vars.workers) === 5) {
+        this.costume = "costume2";
       }
       yield;
     }

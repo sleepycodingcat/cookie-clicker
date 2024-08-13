@@ -7,8 +7,8 @@ import Stage from "./Stage/Stage.js";
 import Cookie from "./Cookie/Cookie.js";
 import Score from "./Score/Score.js";
 import Cookie2 from "./Cookie2/Cookie2.js";
-import GoldCookie from "./GoldCookie/GoldCookie.js";
 import Lights from "./Lights/Lights.js";
+import GoldCookie from "./GoldCookie/GoldCookie.js";
 import Shop from "./Shop/Shop.js";
 import Workers from "./Workers/Workers.js";
 import Machine from "./Machine/Machine.js";
@@ -16,6 +16,7 @@ import Message from "./Message/Message.js";
 import Monster from "./Monster/Monster.js";
 import Acheivementssprite1 from "./Acheivementssprite1/Acheivementssprite1.js";
 import WorkerProp from "./WorkerProp/WorkerProp.js";
+import MachineProp from "./MachineProp/MachineProp.js";
 
 const stage = new Stage({ costumeNumber: 1 });
 
@@ -26,9 +27,9 @@ const sprites = {
     direction: 90,
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
     costumeNumber: 1,
-    size: 399,
+    size: 350,
     visible: true,
-    layerOrder: 1,
+    layerOrder: 3,
   }),
   Score: new Score({
     x: 240,
@@ -38,7 +39,7 @@ const sprites = {
     costumeNumber: 11,
     size: 50,
     visible: false,
-    layerOrder: 3,
+    layerOrder: 4,
   }),
   Cookie2: new Cookie2({
     x: 45,
@@ -48,7 +49,17 @@ const sprites = {
     costumeNumber: 1,
     size: 10,
     visible: false,
-    layerOrder: 4,
+    layerOrder: 5,
+  }),
+  Lights: new Lights({
+    x: 0,
+    y: 0,
+    direction: 11,
+    rotationStyle: Sprite.RotationStyle.ALL_AROUND,
+    costumeNumber: 1,
+    size: 900,
+    visible: true,
+    layerOrder: 1,
   }),
   GoldCookie: new GoldCookie({
     x: 36,
@@ -58,27 +69,17 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 12,
-  }),
-  Lights: new Lights({
-    x: 0,
-    y: 0,
-    direction: 130,
-    rotationStyle: Sprite.RotationStyle.ALL_AROUND,
-    costumeNumber: 1,
-    size: 100,
-    visible: true,
-    layerOrder: 2,
+    layerOrder: 13,
   }),
   Shop: new Shop({
     x: 0,
     y: 0,
     direction: 90,
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
-    costumeNumber: 2,
+    costumeNumber: 1,
     size: 100,
     visible: true,
-    layerOrder: 5,
+    layerOrder: 6,
   }),
   Workers: new Workers({
     x: -172,
@@ -87,8 +88,8 @@ const sprites = {
     rotationStyle: Sprite.RotationStyle.LEFT_RIGHT,
     costumeNumber: 1,
     size: 100,
-    visible: true,
-    layerOrder: 8,
+    visible: false,
+    layerOrder: 9,
   }),
   Machine: new Machine({
     x: -64,
@@ -97,8 +98,8 @@ const sprites = {
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
     costumeNumber: 1,
     size: 100,
-    visible: true,
-    layerOrder: 7,
+    visible: false,
+    layerOrder: 8,
   }),
   Message: new Message({
     x: 0,
@@ -108,7 +109,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 9,
+    layerOrder: 10,
   }),
   Monster: new Monster({
     x: 44,
@@ -117,18 +118,18 @@ const sprites = {
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
     costumeNumber: 1,
     size: 100,
-    visible: true,
-    layerOrder: 6,
+    visible: false,
+    layerOrder: 7,
   }),
   Acheivementssprite1: new Acheivementssprite1({
     x: 124,
     y: -139,
     direction: 90,
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
-    costumeNumber: 4,
+    costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 10,
+    layerOrder: 11,
   }),
   WorkerProp: new WorkerProp({
     x: -211,
@@ -138,7 +139,17 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 11,
+    layerOrder: 12,
+  }),
+  MachineProp: new MachineProp({
+    x: -84,
+    y: -68,
+    direction: 73,
+    rotationStyle: Sprite.RotationStyle.ALL_AROUND,
+    costumeNumber: 1,
+    size: 100,
+    visible: false,
+    layerOrder: 2,
   }),
 };
 

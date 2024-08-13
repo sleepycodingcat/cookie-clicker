@@ -18,6 +18,10 @@ export default class Machine extends Sprite {
         x: 42.29129129129126,
         y: 35.78304303303304,
       }),
+      new Costume("costume2", "./Machine/costumes/costume2.svg", {
+        x: 47.96313082811696,
+        y: 42.847299072520144,
+      }),
     ];
 
     this.sounds = [new Sound("Click", "./Machine/sounds/Click.wav")];
@@ -39,12 +43,14 @@ export default class Machine extends Sprite {
 
   *whenGreenFlagClicked() {
     this.visible = false;
+    this.costume = "costume1";
     this.goto(-64, -44);
     while (true) {
       if (
         this.touching("mouse") &&
         this.mouse.down &&
-        this.toNumber(this.stage.vars.click) === 1
+        this.toNumber(this.stage.vars.click) === 1 &&
+        this.toNumber(this.stage.vars.machines) === 0
       ) {
         while (!!this.mouse.down) {
           yield;
@@ -57,9 +63,13 @@ export default class Machine extends Sprite {
           this.stage.vars.machines++;
           this.stage.vars.upgrades++;
           this.stage.vars.score -= 300;
+          this.broadcast("machine prop");
         } else {
           this.broadcast("Not enough");
         }
+      }
+      if (this.toNumber(this.stage.vars.machines) === 1) {
+        this.costume = "costume2";
       }
       yield;
     }

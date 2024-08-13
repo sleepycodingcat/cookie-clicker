@@ -48,10 +48,10 @@ export default class Acheivementssprite1 extends Sprite {
     ];
 
     this.vars.ach1done = "yes";
-    this.vars.ach2done = "yes";
+    this.vars.ach2done = "no";
     this.vars.ach3done = "no";
-    this.vars.ach4done = "yes";
-    this.vars.ach5done = "yes";
+    this.vars.ach4done = "no";
+    this.vars.ach5done = "no";
   }
 
   *whenGreenFlagClicked() {
