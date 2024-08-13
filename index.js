@@ -17,6 +17,7 @@ import Monster from "./Monster/Monster.js";
 import Acheivementssprite1 from "./Acheivementssprite1/Acheivementssprite1.js";
 import WorkerProp from "./WorkerProp/WorkerProp.js";
 import MachineProp from "./MachineProp/MachineProp.js";
+import MonsterProp from "./MonsterProp/MonsterProp.js";
 
 const stage = new Stage({ costumeNumber: 1 });
 
@@ -54,10 +55,10 @@ const sprites = {
   Lights: new Lights({
     x: 0,
     y: 0,
-    direction: 11,
+    direction: -176,
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
     costumeNumber: 1,
-    size: 900,
+    size: 800,
     visible: true,
     layerOrder: 1,
   }),
@@ -69,7 +70,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 13,
+    layerOrder: 14,
   }),
   Shop: new Shop({
     x: 0,
@@ -79,14 +80,14 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: true,
-    layerOrder: 6,
+    layerOrder: 7,
   }),
   Workers: new Workers({
     x: -172,
     y: -44,
     direction: 90,
     rotationStyle: Sprite.RotationStyle.LEFT_RIGHT,
-    costumeNumber: 1,
+    costumeNumber: 2,
     size: 100,
     visible: false,
     layerOrder: 9,
@@ -96,7 +97,7 @@ const sprites = {
     y: -44,
     direction: 90,
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
-    costumeNumber: 1,
+    costumeNumber: 2,
     size: 100,
     visible: false,
     layerOrder: 8,
@@ -119,7 +120,7 @@ const sprites = {
     costumeNumber: 1,
     size: 100,
     visible: false,
-    layerOrder: 7,
+    layerOrder: 13,
   }),
   Acheivementssprite1: new Acheivementssprite1({
     x: 124,
@@ -144,12 +145,22 @@ const sprites = {
   MachineProp: new MachineProp({
     x: -84,
     y: -68,
-    direction: 73,
+    direction: 74,
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
     costumeNumber: 1,
     size: 100,
     visible: false,
     layerOrder: 2,
+  }),
+  MonsterProp: new MonsterProp({
+    x: 44,
+    y: -44,
+    direction: 90,
+    rotationStyle: Sprite.RotationStyle.ALL_AROUND,
+    costumeNumber: 4,
+    size: 100,
+    visible: false,
+    layerOrder: 6,
   }),
 };
 

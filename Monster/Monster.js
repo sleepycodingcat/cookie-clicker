@@ -18,6 +18,10 @@ export default class Monster extends Sprite {
         x: 42.291290000000004,
         y: 35.783015000000006,
       }),
+      new Costume("costume2", "./Monster/costumes/costume2.svg", {
+        x: 47.96313000000001,
+        y: 42.84729999999999,
+      }),
     ];
 
     this.sounds = [new Sound("Click", "./Monster/sounds/Click.wav")];
@@ -40,11 +44,13 @@ export default class Monster extends Sprite {
   *whenGreenFlagClicked() {
     this.visible = false;
     this.goto(44, -44);
+    this.costume = "costume1";
     while (true) {
       if (
         this.touching("mouse") &&
         this.mouse.down &&
-        this.toNumber(this.stage.vars.click) === 1
+        this.toNumber(this.stage.vars.click) === 1 &&
+        !(this.toNumber(this.stage.vars.monsters) === 4)
       ) {
         while (!!this.mouse.down) {
           yield;
@@ -57,9 +63,14 @@ export default class Monster extends Sprite {
           this.stage.vars.monsters++;
           this.stage.vars.upgrades++;
           this.stage.vars.score -= 1000;
+          this.stage.vars.idmonster++;
+          this.sprites["MonsterProp"].createClone();
         } else {
           this.broadcast("Not enough");
         }
+      }
+      if (this.toNumber(this.stage.vars.monsters) === 4) {
+        this.costume = "costume1";
       }
       yield;
     }

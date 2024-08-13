@@ -28,7 +28,7 @@ export default class Stage extends StageBase {
     ];
 
     this.vars.speed = 0;
-    this.vars.score = 12;
+    this.vars.score = 7;
     this.vars.workers = 0;
     this.vars.machines = 0;
     this.vars.monsters = 0;
@@ -36,6 +36,7 @@ export default class Stage extends StageBase {
     this.vars.upgrades = 0;
     this.vars.idworker = 0;
     this.vars.goldCookies = 0;
+    this.vars.idmonster = 0;
 
     this.watchers.workers = new Watcher({
       label: "workers",

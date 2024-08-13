@@ -15,8 +15,8 @@ export default class Lights extends Sprite {
 
     this.costumes = [
       new Costume("Glow", "./Lights/costumes/Glow.svg", {
-        x: 16.783604999999994,
-        y: 16.77926500000001,
+        x: 16.78359499999999,
+        y: 16.779255000000006,
       }),
     ];
 
@@ -30,7 +30,7 @@ export default class Lights extends Sprite {
   *whenGreenFlagClicked() {
     while (true) {
       this.goto(this.sprites["Cookie"].x, this.sprites["Cookie"].y);
-      this.size = 900;
+      this.size = 800;
       this.direction += 1;
       this.moveBehind();
       yield;
