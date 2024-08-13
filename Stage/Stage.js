@@ -28,12 +28,13 @@ export default class Stage extends StageBase {
     ];
 
     this.vars.speed = 0;
-    this.vars.score = 0;
+    this.vars.score = 37;
     this.vars.workers = 0;
     this.vars.machines = 0;
     this.vars.monsters = 0;
     this.vars.click = 0;
     this.vars.upgrades = 0;
+    this.vars.idworker = 0;
 
     this.watchers.workers = new Watcher({
       label: "workers",
@@ -41,7 +42,7 @@ export default class Stage extends StageBase {
       visible: false,
       value: () => this.vars.workers,
       x: 282,
-      y: 19,
+      y: 17,
     });
     this.watchers.machines = new Watcher({
       label: "machines",

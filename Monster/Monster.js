@@ -16,7 +16,7 @@ export default class Monster extends Sprite {
     this.costumes = [
       new Costume("costume1", "./Monster/costumes/costume1.svg", {
         x: 42.291290000000004,
-        y: 35.78303500000001,
+        y: 35.78302500000001,
       }),
     ];
 
@@ -51,12 +51,12 @@ export default class Monster extends Sprite {
         }
         yield* this.startSound("Click");
         if (
-          this.toNumber(this.stage.vars.score) === 500 ||
-          this.compare(this.stage.vars.score, 150) > 0
+          this.toNumber(this.stage.vars.score) === 1000 ||
+          this.compare(this.stage.vars.score, 1000) > 0
         ) {
           this.stage.vars.monsters++;
           this.stage.vars.upgrades++;
-          this.stage.vars.score -= 500;
+          this.stage.vars.score -= 1000;
         } else {
           this.broadcast("Not enough");
         }

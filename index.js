@@ -14,6 +14,7 @@ import Machine from "./Machine/Machine.js";
 import Message from "./Message/Message.js";
 import Monster from "./Monster/Monster.js";
 import Acheivements from "./Acheivements/Acheivements.js";
+import WorkerProp from "./WorkerProp/WorkerProp.js";
 
 const stage = new Stage({ costumeNumber: 1 });
 
@@ -51,7 +52,7 @@ const sprites = {
   Lights: new Lights({
     x: 0,
     y: 0,
-    direction: 156,
+    direction: -128,
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
     costumeNumber: 1,
     size: 100,
@@ -72,7 +73,7 @@ const sprites = {
     x: -172,
     y: -44,
     direction: 90,
-    rotationStyle: Sprite.RotationStyle.ALL_AROUND,
+    rotationStyle: Sprite.RotationStyle.LEFT_RIGHT,
     costumeNumber: 1,
     size: 100,
     visible: false,
@@ -93,7 +94,7 @@ const sprites = {
     y: 0,
     direction: 90,
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
-    costumeNumber: 1,
+    costumeNumber: 2,
     size: 100,
     visible: false,
     layerOrder: 9,
@@ -113,10 +114,20 @@ const sprites = {
     y: -139,
     direction: 90,
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
-    costumeNumber: 2,
+    costumeNumber: 1,
     size: 100,
     visible: false,
     layerOrder: 10,
+  }),
+  WorkerProp: new WorkerProp({
+    x: -211,
+    y: 68,
+    direction: 90,
+    rotationStyle: Sprite.RotationStyle.ALL_AROUND,
+    costumeNumber: 1,
+    size: 100,
+    visible: false,
+    layerOrder: 11,
   }),
 };
 

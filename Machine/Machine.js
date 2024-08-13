@@ -51,12 +51,12 @@ export default class Machine extends Sprite {
         }
         yield* this.startSound("Click");
         if (
-          this.toNumber(this.stage.vars.score) === 150 ||
-          this.compare(this.stage.vars.score, 150) > 0
+          this.toNumber(this.stage.vars.score) === 300 ||
+          this.compare(this.stage.vars.score, 300) > 0
         ) {
           this.stage.vars.machines++;
           this.stage.vars.upgrades++;
-          this.stage.vars.score -= 150;
+          this.stage.vars.score -= 300;
         } else {
           this.broadcast("Not enough");
         }

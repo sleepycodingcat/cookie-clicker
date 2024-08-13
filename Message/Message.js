@@ -18,6 +18,10 @@ export default class Message extends Sprite {
         x: 36.91593140121549,
         y: -155.62964172840117,
       }),
+      new Costume("costume2", "./Message/costumes/costume2.svg", {
+        x: 162.00366953287076,
+        y: -149.17306557527388,
+      }),
     ];
 
     this.sounds = [new Sound("pop", "./Message/sounds/pop.wav")];
@@ -29,6 +33,11 @@ export default class Message extends Sprite {
         { name: "Not enough" },
         this.whenIReceiveNotEnough
       ),
+      new Trigger(
+        Trigger.BROADCAST,
+        { name: "buy maximum" },
+        this.whenIReceiveBuyMaximum
+      ),
     ];
   }
 
@@ -38,6 +47,18 @@ export default class Message extends Sprite {
   }
 
   *whenIReceiveNotEnough() {
+    this.costume = "costume1";
+    for (let i = 0; i < 3; i++) {
+      yield* this.wait(0.3);
+      this.visible = true;
+      yield* this.wait(0.3);
+      this.visible = false;
+      yield;
+    }
+  }
+
+  *whenIReceiveBuyMaximum() {
+    this.costume = "costume2";
     for (let i = 0; i < 3; i++) {
       yield* this.wait(0.3);
       this.visible = true;

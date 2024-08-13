@@ -40,12 +40,14 @@ export default class Workers extends Sprite {
   *whenGreenFlagClicked() {
     this.visible = false;
     this.goto(-172, -44);
+    this.rotationStyle = Sprite.RotationStyle.LEFT_RIGHT;
     this.stage.vars.click = 0;
     while (true) {
       if (
         this.touching("mouse") &&
         this.mouse.down &&
-        this.toNumber(this.stage.vars.click) === 1
+        this.toNumber(this.stage.vars.click) === 1 &&
+        !(this.toNumber(this.stage.vars.workers) === 5)
       ) {
         while (!!this.mouse.down) {
           yield;
@@ -58,8 +60,14 @@ export default class Workers extends Sprite {
           this.stage.vars.workers++;
           this.stage.vars.upgrades++;
           this.stage.vars.score -= 50;
+          this.stage.vars.idworker++;
+          this.sprites["WorkerProp"].createClone();
         } else {
-          this.broadcast("Not enough");
+          if (this.toNumber(this.stage.vars.workers) === 5) {
+            this.broadcast("buy maximum");
+          } else {
+            this.broadcast("Not enough");
+          }
         }
       }
       yield;
