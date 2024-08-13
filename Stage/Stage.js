@@ -28,18 +28,19 @@ export default class Stage extends StageBase {
     ];
 
     this.vars.speed = 0;
-    this.vars.score = 37;
-    this.vars.workers = 0;
+    this.vars.score = 483;
+    this.vars.workers = 5;
     this.vars.machines = 0;
-    this.vars.monsters = 0;
-    this.vars.click = 0;
-    this.vars.upgrades = 0;
-    this.vars.idworker = 0;
+    this.vars.monsters = 1;
+    this.vars.click = 1;
+    this.vars.upgrades = 6;
+    this.vars.idworker = 5;
+    this.vars.goldCookies = 1;
 
     this.watchers.workers = new Watcher({
       label: "workers",
       style: "large",
-      visible: false,
+      visible: true,
       value: () => this.vars.workers,
       x: 282,
       y: 17,
@@ -47,7 +48,7 @@ export default class Stage extends StageBase {
     this.watchers.machines = new Watcher({
       label: "machines",
       style: "large",
-      visible: false,
+      visible: true,
       value: () => this.vars.machines,
       x: 392,
       y: 17,
@@ -55,7 +56,7 @@ export default class Stage extends StageBase {
     this.watchers.monsters = new Watcher({
       label: "monsters",
       style: "large",
-      visible: false,
+      visible: true,
       value: () => this.vars.monsters,
       x: 498,
       y: 18,
@@ -67,6 +68,7 @@ export default class Stage extends StageBase {
     this.vars.monsters = 0;
     this.vars.machines = 0;
     this.vars.upgrades = 0;
+    this.vars.goldCookies = 0;
     this.vars.score += this.toNumber(this.vars.monsters) * 50;
     while (true) {
       this.vars.score += this.toNumber(this.vars.workers);

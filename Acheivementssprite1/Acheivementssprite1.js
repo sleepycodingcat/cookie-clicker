@@ -9,30 +9,34 @@ import {
   Sound,
 } from "https://unpkg.com/leopard@^1/dist/index.esm.js";
 
-export default class Acheivements extends Sprite {
+export default class Acheivementssprite1 extends Sprite {
   constructor(...args) {
     super(...args);
 
     this.costumes = [
-      new Costume("1", "./Acheivements/costumes/1.svg", {
+      new Costume("1", "./Acheivementssprite1/costumes/1.svg", {
         x: 108.68749237060547,
         y: 38.281768798828125,
       }),
-      new Costume("2", "./Acheivements/costumes/2.svg", {
+      new Costume("2", "./Acheivementssprite1/costumes/2.svg", {
         x: 108.68749237060544,
         y: 38.2817687988281,
       }),
-      new Costume("3", "./Acheivements/costumes/3.svg", {
+      new Costume("3", "./Acheivementssprite1/costumes/3.svg", {
         x: 108.68749,
         y: 38.281769999999995,
       }),
-      new Costume("4", "./Acheivements/costumes/4.svg", {
+      new Costume("4", "./Acheivementssprite1/costumes/4.svg", {
         x: 108.68749,
         y: 38.281769999999995,
+      }),
+      new Costume("5", "./Acheivementssprite1/costumes/5.svg", {
+        x: 109.56249500000001,
+        y: 38.78177118672639,
       }),
     ];
 
-    this.sounds = [new Sound("Coin", "./Acheivements/sounds/Coin.wav")];
+    this.sounds = [new Sound("Coin", "./Acheivementssprite1/sounds/Coin.wav")];
 
     this.triggers = [
       new Trigger(Trigger.GREEN_FLAG, this.whenGreenFlagClicked),
@@ -40,12 +44,14 @@ export default class Acheivements extends Sprite {
       new Trigger(Trigger.BROADCAST, { name: "ach2" }, this.whenIReceiveAch2),
       new Trigger(Trigger.BROADCAST, { name: "ach3" }, this.whenIReceiveAch3),
       new Trigger(Trigger.BROADCAST, { name: "ach4" }, this.whenIReceiveAch4),
+      new Trigger(Trigger.BROADCAST, { name: "ach5" }, this.whenIReceiveAch5),
     ];
 
     this.vars.ach1done = "yes";
-    this.vars.ach2done = "no";
+    this.vars.ach2done = "yes";
     this.vars.ach3done = "no";
-    this.vars.ach4done = "no";
+    this.vars.ach4done = "yes";
+    this.vars.ach5done = "yes";
   }
 
   *whenGreenFlagClicked() {
@@ -54,12 +60,14 @@ export default class Acheivements extends Sprite {
     this.vars.ach2done = "no";
     this.vars.ach3done = "no";
     this.vars.ach4done = "no";
+    this.vars.ach5done = "no";
     this.visible = false;
     this.effects.clear();
     this.broadcast("ach1");
     this.broadcast("ach2");
     this.broadcast("ach3");
     this.broadcast("ach4");
+    this.broadcast("ach5");
   }
 
   *showAchievement(achNo) {
@@ -110,6 +118,16 @@ export default class Acheivements extends Sprite {
       if (this.toNumber(this.stage.vars.monsters) === 1) {
         this.vars.ach4done = "yes";
         yield* this.showAchievement(4);
+      }
+      yield;
+    }
+  }
+
+  *whenIReceiveAch5() {
+    while (!(this.toString(this.vars.ach5done) === "yes")) {
+      if (this.toNumber(this.stage.vars.goldCookies) === 1) {
+        this.vars.ach5done = "yes";
+        yield* this.showAchievement(5);
       }
       yield;
     }

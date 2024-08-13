@@ -7,13 +7,14 @@ import Stage from "./Stage/Stage.js";
 import Cookie from "./Cookie/Cookie.js";
 import Score from "./Score/Score.js";
 import Cookie2 from "./Cookie2/Cookie2.js";
+import GoldCookie from "./GoldCookie/GoldCookie.js";
 import Lights from "./Lights/Lights.js";
 import Shop from "./Shop/Shop.js";
 import Workers from "./Workers/Workers.js";
 import Machine from "./Machine/Machine.js";
 import Message from "./Message/Message.js";
 import Monster from "./Monster/Monster.js";
-import Acheivements from "./Acheivements/Acheivements.js";
+import Acheivementssprite1 from "./Acheivementssprite1/Acheivementssprite1.js";
 import WorkerProp from "./WorkerProp/WorkerProp.js";
 
 const stage = new Stage({ costumeNumber: 1 });
@@ -25,9 +26,9 @@ const sprites = {
     direction: 90,
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
     costumeNumber: 1,
-    size: 350,
+    size: 399,
     visible: true,
-    layerOrder: 2,
+    layerOrder: 1,
   }),
   Score: new Score({
     x: 240,
@@ -49,22 +50,32 @@ const sprites = {
     visible: false,
     layerOrder: 4,
   }),
+  GoldCookie: new GoldCookie({
+    x: 36,
+    y: 28,
+    direction: 90,
+    rotationStyle: Sprite.RotationStyle.ALL_AROUND,
+    costumeNumber: 1,
+    size: 100,
+    visible: false,
+    layerOrder: 12,
+  }),
   Lights: new Lights({
     x: 0,
     y: 0,
-    direction: -128,
+    direction: 130,
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
     costumeNumber: 1,
     size: 100,
     visible: true,
-    layerOrder: 1,
+    layerOrder: 2,
   }),
   Shop: new Shop({
     x: 0,
     y: 0,
     direction: 90,
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
-    costumeNumber: 1,
+    costumeNumber: 2,
     size: 100,
     visible: true,
     layerOrder: 5,
@@ -76,7 +87,7 @@ const sprites = {
     rotationStyle: Sprite.RotationStyle.LEFT_RIGHT,
     costumeNumber: 1,
     size: 100,
-    visible: false,
+    visible: true,
     layerOrder: 8,
   }),
   Machine: new Machine({
@@ -86,7 +97,7 @@ const sprites = {
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
     costumeNumber: 1,
     size: 100,
-    visible: false,
+    visible: true,
     layerOrder: 7,
   }),
   Message: new Message({
@@ -94,7 +105,7 @@ const sprites = {
     y: 0,
     direction: 90,
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
-    costumeNumber: 2,
+    costumeNumber: 1,
     size: 100,
     visible: false,
     layerOrder: 9,
@@ -106,15 +117,15 @@ const sprites = {
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
     costumeNumber: 1,
     size: 100,
-    visible: false,
+    visible: true,
     layerOrder: 6,
   }),
-  Acheivements: new Acheivements({
+  Acheivementssprite1: new Acheivementssprite1({
     x: 124,
     y: -139,
     direction: 90,
     rotationStyle: Sprite.RotationStyle.ALL_AROUND,
-    costumeNumber: 1,
+    costumeNumber: 4,
     size: 100,
     visible: false,
     layerOrder: 10,

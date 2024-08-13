@@ -16,7 +16,7 @@ export default class Monster extends Sprite {
     this.costumes = [
       new Costume("costume1", "./Monster/costumes/costume1.svg", {
         x: 42.291290000000004,
-        y: 35.78302500000001,
+        y: 35.783015000000006,
       }),
     ];
 

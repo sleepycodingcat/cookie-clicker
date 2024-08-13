@@ -102,6 +102,9 @@ export default class Cookie extends Sprite {
     while (!(this.compare(-30, this.y) > 0)) {
       this.y -= 10;
       this.effects.ghost += 4;
+      if (this.compare(this.size, 80) > 0) {
+        this.deleteThisClone();
+      }
       yield;
     }
     this.deleteThisClone();
